@@ -224,7 +224,7 @@ namespace Kusachius.Fakedata.Lt
             "Naujokienė", "Kairienė", "Žemaitė", "Dambrauskienė",  "Sadauskienė",  "Paškevičienė",  "Malinauskienė",  "Suvorovienė",  "Rutkauskienė",  "Bagdonienė",
             "Petkevičiūtė",  "Jurevičiūtė",  "Sinkevičienė",  "Juškaitė",  "Kaminskaitė" };
 
-        protected string[] emailSuffix = { "@gmail.com", "@mail.lt", "@mail.ru", "@delfi.lt", "@gmail.com", "@gmail.com", "@gmail.com" };
+        protected string[] emailSuffix = { "@džimail.com", "@mailas.lt", "@nomail.ru", "@delfis.lt", "@ongmail.com", "@ongmail.com", "@hiermail.co" };
 
         protected string GetRandom(string[] data)
         {

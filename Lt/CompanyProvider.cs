@@ -13,9 +13,11 @@ namespace Kusachius.Fakedata.Lt
         private PersonProvider pers = new PersonProvider();
 
         protected string[] name = { "Moliūgas", "Ragai ir Kanopos", "Automaika", "Anodas", "Katodas", "Detis", "Tapu Tapu", "Super paslaugos",
-            "Marketingo strategijos", "Gabun grupė", "Kept filialas", "Ekus", "Dideli Projektai" };
+            "Marketingo strategijos", "Gabun grupė", "Kept filialas", "Ekus", "Dideli Projektai", "Duslintuvas", "GTR", "Šakė", "Cepelinas", "Variklių remontas",
+            "Super specialistai", "Jėgos aitvarai", "NH Mašinos", "Gydymo reikmenys", "Medžiotojas", "Asfaltas", "Rankena", "Valymo paslaugos", "Valytuvas",
+            "John & Jackson", "Didieji raiteliai", "Pėstininkas", "Rikis", "Bokštas", "Žirgas", "Laukų startuoliai" };
 
-        protected string[] prefix = { "UAB", "UAB", "UAB", "UAB", "AB", "MB", "IĮ" };
+        protected string[] prefix = { "UAB", "UAB", "UAB", "UAB", "AB", "MB", "IĮ", "Asociacija", "VŠĮ" };
 
         protected string[] titles = { "Direktorius", "Direktoriaus pavaduotojas", "Atstovas", "Vadybininkas", "CEO", "Įgaliotas asmuo", "Valytojas" };
 
