@@ -27,3 +27,22 @@ var city = addresses.GetRandomCity();
 The providers generate Lithuanian names, company names, company and VAT numbers,
 addresses, postal codes, and phone numbers. Generated values are intended for
 non-production test and development data.
+
+## Publishing
+
+The GitHub Actions workflow in [`.github/workflows/publish.yml`](.github/workflows/publish.yml)
+builds and publishes the package to NuGet.org.
+
+Before publishing:
+
+1. Create a NuGet.org API key with permission to push this package.
+2. In the GitHub repository, add the key as an Actions secret named `NUGET_API_KEY`.
+3. Push a version tag such as `v1.4.0`:
+
+   ```shell
+   git tag v1.4.0
+   git push origin v1.4.0
+   ```
+
+The workflow uses the tag without its leading `v` as the NuGet package version.
+It can also be run manually from the Actions tab by supplying a package version.

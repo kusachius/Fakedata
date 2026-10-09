@@ -1,0 +1,75 @@
+name: Publish NuGet package
+
+on:
+  push:
+    tags:
+      - "v*"
+  workflow_dispatch:
+    inputs:
+      package_version: 
+        description: "1.4.0"
+        required: true
+        type: string
+
+permissions:
+  contents: read
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    env:
+      NUGET_SOURCE: https://api.nuget.org/v3/index.json
+      PACKAGE_OUTPUT: ${{ runner.temp }}/nuget-packages
+    steps:
+      - name: Check out source
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 6.0.x
+
+      - name: Determine package version
+        id: version
+        shell: bash
+        run: |
+          if [[ "${{ github.event_name }}" == "workflow_dispatch" ]]; then
+            version="${{ inputs.package_version }}"
+          else
+            version="${GITHUB_REF_NAME#v}"
+          fi
+
+          if [[ -z "$version" ]]; then
+            echo "Package version cannot be empty." >&2
+            exit 1
+          fi
+
+          echo "value=$version" >> "$GITHUB_OUTPUT"
+
+      - name: Restore
+        run: dotnet restore Kusachius.Fakedata.Tests/Kusachius.Fakedata.Tests.csproj
+
+      - name: Build
+        run: dotnet build Kusachius.Fakedata.csproj --configuration Release --no-restore
+
+      - name: Test
+        run: dotnet test Kusachius.Fakedata.Tests/Kusachius.Fakedata.Tests.csproj --configuration Release --no-restore
+
+      - name: Pack
+        run: >
+          dotnet pack Kusachius.Fakedata.csproj
+          --configuration Release
+          --no-build
+          --output "$PACKAGE_OUTPUT"
+          -p:PackageVersion="${{ steps.version.outputs.value }}"
+          -p:RepositoryUrl="https://github.com/${{ github.repository }}"
+          -p:RepositoryCommit="${{ github.sha }}"
+
+      - name: Publish
+        run: >
+          dotnet nuget push "$PACKAGE_OUTPUT"/*.nupkg
+          --api-key "${{ secrets.NUGET_API_KEY }}"
+          --source "$NUGET_SOURCE"
+          --skip-duplicate
