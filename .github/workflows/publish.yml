@@ -19,7 +19,7 @@ jobs:
     runs-on: ubuntu-latest
     env:
       NUGET_SOURCE: https://api.nuget.org/v3/index.json
-      PACKAGE_OUTPUT: ${{ runner.temp }}/nuget-packages
+      PACKAGE_OUTPUT: ${{ github.workspace }}/nuget-packages
     steps:
       - name: Check out source
         uses: actions/checkout@v4
