@@ -11,13 +11,13 @@
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageReadmeFile>README.md</PackageReadmeFile>
+    <RepositoryUrl>https://github.com/kusachius/Fakedata</RepositoryUrl>
   </PropertyGroup>
 
   <ItemGroup>
     <Folder Include="Lt\" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Remove="Class1.cs" />
     <Compile Remove="Kusachius.Fakedata.Tests\**\*.cs" />
   </ItemGroup>
   <ItemGroup>
