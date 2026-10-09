@@ -3,6 +3,14 @@
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
     <ReleaseVersion>1.4</ReleaseVersion>
+    <PackageId>Kusachius.Fakedata</PackageId>
+    <PackageVersion>$(ReleaseVersion).0</PackageVersion>
+    <Authors>Aldis Arust</Authors>
+    <Description>Random Lithuanian person, company, and address data for tests and development.</Description>
+    <PackageTags>Lithuanian;fake data;test data;faker</PackageTags>
+    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
   </PropertyGroup>
 
   <ItemGroup>
@@ -10,5 +18,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Remove="Class1.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="README.md" Pack="true" PackagePath="\" />
+    <None Include="LICENSE" Pack="true" PackagePath="\" />
   </ItemGroup>
 </Project>
