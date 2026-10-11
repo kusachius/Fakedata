@@ -4,6 +4,8 @@
 
 ## Installation
 
+Version 1.10.0 targets .NET 10. Building and testing requires the .NET 10 SDK.
+
 ```shell
 dotnet add package Kusachius.Fakedata
 ```
@@ -41,11 +43,11 @@ Before publishing, configure NuGet.org trusted publishing:
    package owner.
 2. Add a GitHub Actions secret named `NUGET_USER` containing that NuGet.org
    username. This is an account identifier, not an API key.
-3. Push a version tag such as `v1.4.0`:
+3. Push a version tag such as `v1.10.0`:
 
    ```shell
-   git tag v1.4.0
-   git push origin v1.4.0
+   git tag v1.10.0
+   git push origin v1.10.0
    ```
 
 The workflow uses the tag without its leading `v` as the NuGet package version.
