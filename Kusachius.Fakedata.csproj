@@ -15,9 +15,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Lt\" />
-  </ItemGroup>
-  <ItemGroup>
     <Compile Remove="Kusachius.Fakedata.Tests\**\*.cs" />
   </ItemGroup>
   <ItemGroup>
